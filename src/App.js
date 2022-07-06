@@ -1,3 +1,6 @@
+import React from "react";
+import { render } from "react-dom";
+
 const Lol = ({ name, animal, breed }) => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, name),
@@ -14,4 +17,4 @@ const App = () => {
     React.createElement(Lol, { name: "ahmed", animal: "z", breed: "m" }),
   ]);
 };
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(React.createElement(App), document.getElementById("root"));
