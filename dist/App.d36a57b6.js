@@ -33076,40 +33076,61 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"Lol.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Lol;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Lol(_ref) {
+  var name = _ref.name,
+      animal = _ref.animal,
+      breed = _ref.breed;
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, animal), /*#__PURE__*/_react.default.createElement("h2", null, breed));
+}
+
+;
+},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = require("react-dom");
 
+var _Lol = _interopRequireDefault(require("./Lol"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Lol = function Lol(_ref) {
-  var name = _ref.name,
-      animal = _ref.animal,
-      breed = _ref.breed;
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, name), _react.default.createElement("h2", {}, animal), _react.default.createElement("h2", {}, breed)]);
-};
-
 var App = function App() {
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, "Adopt Me !"), _react.default.createElement(Lol, {
-    name: "ali",
-    animal: "x",
-    breed: "m"
-  }), _react.default.createElement(Lol, {
-    name: "omer",
-    animal: "y",
-    breed: "f"
-  }), _react.default.createElement(Lol, {
-    name: "ahmed",
-    animal: "z",
-    breed: "m"
-  })]);
+  // return React.createElement("div", {}, [
+  //   React.createElement("h1", {}, "Adopt Me !"),
+  //   React.createElement(Lol, { name: "ali", animal: "x", breed: "m" }),
+  //   React.createElement(Lol, { name: "omer", animal: "y", breed: "f" }),
+  //   React.createElement(Lol, { name: "ahmed", animal: "z", breed: "m" }),
+  // ]);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Adopt Me !"), /*#__PURE__*/_react.default.createElement(_Lol.default, {
+    name: "lorem",
+    animal: "dog",
+    breed: "con"
+  }), /*#__PURE__*/_react.default.createElement(_Lol.default, {
+    name: "lorem1",
+    animal: "dog1",
+    breed: "con1"
+  }), /*#__PURE__*/_react.default.createElement(_Lol.default, {
+    name: "lorem2",
+    animal: "dog2",
+    breed: "con2"
+  }));
 };
 
-(0, _reactDom.render)(_react.default.createElement(App), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(App, null), document.getElementById("root"));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Lol":"Lol.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -33137,7 +33158,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40941" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44351" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
