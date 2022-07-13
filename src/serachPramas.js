@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const SearchPramas = () => {
+
     const [location, setLocation] = useState('Seattle,WA');
 
     return (
