@@ -33076,7 +33076,38 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/react-dom/client.js":[function(require,module,exports) {
+'use strict';
+
+var m = require('react-dom');
+
+if ("development" === 'production') {
+  exports.createRoot = m.createRoot;
+  exports.hydrateRoot = m.hydrateRoot;
+} else {
+  var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+
+  exports.createRoot = function (c, o) {
+    i.usingClientEntryPoint = true;
+
+    try {
+      return m.createRoot(c, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+
+  exports.hydrateRoot = function (c, h, o) {
+    i.usingClientEntryPoint = true;
+
+    try {
+      return m.hydrateRoot(c, h, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+}
+},{"react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -34820,7 +34851,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _pet = require("@frontendmasters/pet");
+var _pet = _interopRequireWildcard(require("@frontendmasters/pet"));
 
 var _useDropdown5 = _interopRequireDefault(require("./useDropdown"));
 
@@ -34859,10 +34890,24 @@ var SearchPramas = function SearchPramas() {
       AnimalDropdown = _useDropdown2[1];
 
   var _useDropdown3 = (0, _useDropdown5.default)("Breed", "", breeds),
-      _useDropdown4 = _slicedToArray(_useDropdown3, 2),
+      _useDropdown4 = _slicedToArray(_useDropdown3, 3),
       breed = _useDropdown4[0],
-      BreedDropdown = _useDropdown4[1];
+      BreedDropdown = _useDropdown4[1],
+      setBreed = _useDropdown4[2];
 
+  (0, _react.useEffect)(function () {
+    setBreeds([]);
+    setBreed("");
+
+    _pet.default.breeds(animal).then(function (_ref) {
+      var breeds = _ref.breeds;
+      var breedStrings = breeds.map(function (_ref2) {
+        var name = _ref2.name;
+        return name;
+      });
+      setBreeds(breedStrings);
+    }, console.error);
+  }, [animal]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "search-params"
   }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
@@ -34884,7 +34929,7 @@ exports.default = _default;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = require("react-dom");
+var _client = _interopRequireDefault(require("react-dom/client"));
 
 var _serachPramas = _interopRequireDefault(require("./serachPramas"));
 
@@ -34894,8 +34939,14 @@ var App = function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Adopt Me !"), /*#__PURE__*/_react.default.createElement(_serachPramas.default, null));
 };
 
-(0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(App, null), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./serachPramas":"serachPramas.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var root = _client.default.createRoot(document.getElementById("root"));
+
+root.render(
+/*#__PURE__*/
+// <React.StrictMode>
+_react.default.createElement(App, null) // </React.StrictMode>
+);
+},{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./serachPramas":"serachPramas.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
