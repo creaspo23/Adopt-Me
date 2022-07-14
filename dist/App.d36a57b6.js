@@ -34936,7 +34936,7 @@ var _serachPramas = _interopRequireDefault(require("./serachPramas"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Adopt Me !"), /*#__PURE__*/_react.default.createElement(_serachPramas.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement("h1", null, "Adopt Me !"), /*#__PURE__*/_react.default.createElement(_serachPramas.default, null)));
 };
 
 var root = _client.default.createRoot(document.getElementById("root"));
@@ -34974,7 +34974,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46805" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32837" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
