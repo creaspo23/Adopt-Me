@@ -34825,7 +34825,7 @@ const Results = ({
     animal: pet.type,
     key: pet.id,
     name: pet.name,
-    breed: pet.breed.primary,
+    breed: pet.breeds.primary,
     media: pet.photos,
     location: `${pet.contact.address.city},${pet.contact.address.state}`,
     id: pet.id
@@ -34902,7 +34902,7 @@ const SearchPramas = () => {
   async function requestPets() {
     const {
       animals
-    } = await _pet.default.animal({
+    } = await _pet.default.animals({
       location,
       breed,
       type: animal

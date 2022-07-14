@@ -11,13 +11,15 @@ const SearchPramas = () => {
     const [pets, setPets] = useState([]);
 
     async function requestPets() {
-        const { animals } = await pet.animal({
+        const { animals } = await pet.animals({
             location,
             breed,
-            type: animal,
+            type: animal
         });
+
         setPets(animals || []);
     }
+
 
     useEffect(() => {
         setBreeds([]);
